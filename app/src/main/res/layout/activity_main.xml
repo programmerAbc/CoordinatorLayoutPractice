@@ -6,78 +6,36 @@
     android:layout_height="match_parent"
     tools:context="com.practice.coordinatorlayout.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
+    <LinearLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent">
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
 
-        <com.youth.banner.Banner
+        <FrameLayout
             android:id="@+id/banner"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed" />
+            android:layout_height="@dimen/banner_height"
+            android:background="@mipmap/ic_launcher_round" />
 
         <LinearLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:background="@android:color/holo_orange_light"
             android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:text="TAB A" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:text="TAB b" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:text="TAB C" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:text="TAB D" />
-
-
         </LinearLayout>
 
-    </android.support.design.widget.AppBarLayout>
-    <View
-        app:layout_behavior="com.practice.coordinatorlayout.MyCoordinatorLayoutBehavior"
-        android:id="@+id/bgView"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/bg"
-        />
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@mipmap/ic_launcher_round" />
-
-    </FrameLayout>
+    </LinearLayout>
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="com.practice.coordinatorlayout.MyNestedScrollViewBehavior">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -85,6 +43,21 @@
             android:orientation="vertical">
 
             <Button
+                android:text="first"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -145,18 +118,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <Button
+                android:text="last"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

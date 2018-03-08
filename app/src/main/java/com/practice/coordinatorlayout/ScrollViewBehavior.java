@@ -2,6 +2,7 @@ package com.practice.coordinatorlayout;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -21,8 +22,7 @@ public class ScrollViewBehavior extends CoordinatorLayout.Behavior<View> {
 
     @Override
     public boolean onLayoutChild(CoordinatorLayout parent, View child, int layoutDirection) {
-        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
-        layoutParams.topMargin = parent.getBottom();
+        child.layout(0, dependencyView.getBottom(), dependencyView.getRight(), dependencyView.getBottom() + child.getMeasuredHeight());
         return false;
     }
 

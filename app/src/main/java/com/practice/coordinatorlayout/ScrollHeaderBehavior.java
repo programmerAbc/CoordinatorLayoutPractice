@@ -29,12 +29,14 @@ public class ScrollHeaderBehavior extends CoordinatorLayout.Behavior<View> {
         super(context, attrs);
         scroller = new Scroller(context);
         handler = new Handler();
-        nestedScrollDistance=context.getResources().getDimension(R.dimen.banner_height);
+        nestedScrollDistance = context.getResources().getDimension(R.dimen.banner_height);
     }
+
 
     @Override
     public boolean onLayoutChild(CoordinatorLayout parent, View child, int layoutDirection) {
         header = child;
+        nestedScrollDistance = header.getMeasuredHeight() - child.getResources().getDimension(R.dimen.title_bar_height)-child.getResources().getDimension(R.dimen.tab_height);
         return super.onLayoutChild(parent, child, layoutDirection);
     }
 

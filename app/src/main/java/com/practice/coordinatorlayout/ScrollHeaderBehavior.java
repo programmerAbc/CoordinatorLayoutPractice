@@ -18,7 +18,7 @@ public class ScrollHeaderBehavior extends CoordinatorLayout.Behavior<View> {
     private float nestedScrollDistance = 0;
     private Scroller scroller;
     private Handler handler;
-    private static final int MIN_VELOCITY = 300;
+    private static final int MIN_VELOCITY = 30;
     View header = null;
 
 
@@ -36,7 +36,7 @@ public class ScrollHeaderBehavior extends CoordinatorLayout.Behavior<View> {
     @Override
     public boolean onLayoutChild(CoordinatorLayout parent, View child, int layoutDirection) {
         header = child;
-        nestedScrollDistance = header.getMeasuredHeight() - child.getResources().getDimension(R.dimen.title_bar_height)-child.getResources().getDimension(R.dimen.tab_height);
+        nestedScrollDistance = header.getMeasuredHeight() - child.getResources().getDimension(R.dimen.title_bar_height) - child.getResources().getDimension(R.dimen.tab_height);
         return super.onLayoutChild(parent, child, layoutDirection);
     }
 
@@ -86,13 +86,24 @@ public class ScrollHeaderBehavior extends CoordinatorLayout.Behavior<View> {
                 return false;
             }
 
-        } else if (velocityY < 0) {//向下划
-            if (child.getTranslationY() < 0 && !ViewCompat.canScrollVertically(target, -1)) {
-                if (Math.abs(velocityY) > MIN_VELOCITY) {
-                    animateTranslateTo(0, 300);
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public boolean onNestedFling(CoordinatorLayout coordinatorLayout, View child, View target, float velocityX, float velocityY, boolean consumed) {
+        if (!consumed) {
+            if (velocityY < 0) {//向下划
+                if (child.getTranslationY() < 0) {
+                    if (Math.abs(velocityY) > MIN_VELOCITY) {
+                        animateTranslateTo(0, 300);
+                    }
+                    return true;
+                } else {
+                    return false;
                 }
-                return true;
-            } else {
+            }else{
                 return false;
             }
         } else {

@@ -21,9 +21,11 @@ public class ScrollViewBehavior extends CoordinatorLayout.Behavior<View> {
     }
 
     @Override
-    public boolean onLayoutChild(CoordinatorLayout parent, View child, int layoutDirection) {
-        child.layout(0, dependencyView.getBottom(), dependencyView.getRight(), (int) (dependencyView.getBottom() + child.getMeasuredHeight() - parent.getResources().getDimension(R.dimen.tab_height) - parent.getResources().getDimension(R.dimen.title_bar_height)));
-        return true;
+    public boolean onMeasureChild(CoordinatorLayout parent, View child, int parentWidthMeasureSpec, int widthUsed, int parentHeightMeasureSpec, int heightUsed) {
+        CoordinatorLayout.LayoutParams layoutParams= (CoordinatorLayout.LayoutParams) child.getLayoutParams();
+        layoutParams.topMargin=dependencyView.getMeasuredHeight();
+        layoutParams.height=(int)(parent.getMeasuredHeight()-parent.getResources().getDimension(R.dimen.tab_height)-parent.getResources().getDimension(R.dimen.title_bar_height));
+        return false;
     }
 
     @Override

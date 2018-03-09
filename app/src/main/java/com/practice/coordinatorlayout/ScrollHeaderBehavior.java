@@ -32,7 +32,6 @@ public class ScrollHeaderBehavior extends CoordinatorLayout.Behavior<View> {
         nestedScrollDistance = context.getResources().getDimension(R.dimen.banner_height);
     }
 
-
     @Override
     public boolean onLayoutChild(CoordinatorLayout parent, View child, int layoutDirection) {
         header = child;

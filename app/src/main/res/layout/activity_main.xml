@@ -7,15 +7,14 @@
     tools:context="com.practice.coordinatorlayout.MainActivity">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent">
 
-        <com.youth.banner.Banner
-            android:id="@+id/banner"
+        <View
             android:layout_width="match_parent"
             android:layout_height="160dp"
+            android:background="@android:color/holo_green_light"
             app:layout_scrollFlags="scroll|enterAlwaysCollapsed" />
 
         <LinearLayout
@@ -56,23 +55,57 @@
         </LinearLayout>
 
     </android.support.design.widget.AppBarLayout>
-    <View
-        app:layout_behavior="com.practice.coordinatorlayout.MyCoordinatorLayoutBehavior"
-        android:id="@+id/bgView"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/bg"
-        />
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
 
-        <ImageView
-            android:layout_width="40dp"
+    <android.support.design.widget.AppBarLayout
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@android:color/holo_orange_dark"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:src="@mipmap/ic_launcher_round" />
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    </FrameLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="TAB A" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="TAB b" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="TAB C" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="TAB D" />
+
+
+        </LinearLayout>
+
+    </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -167,3 +200,6 @@
 
 
 </android.support.design.widget.CoordinatorLayout>
+
+
+

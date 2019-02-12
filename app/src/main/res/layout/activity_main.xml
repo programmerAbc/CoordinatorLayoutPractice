@@ -8,34 +8,49 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:elevation="0dp"
-        android:background="@android:color/transparent">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             app:contentScrim="@android:color/transparent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
-            <ImageView
-                android:id="@+id/expandedImage"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <LinearLayout
+                android:background="@android:color/holo_red_light"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 app:layout_collapseMode="none"
-                android:src="@mipmap/ic_launcher"
-                app:layout_collapseParallaxMultiplier="0" />
+                app:layout_collapseParallaxMultiplier="0">
+
+                <ImageView
+                    android:id="@+id/expandedImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher" />
+
+                <Button
+                    android:id="@+id/actionBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="action" />
+
+            </LinearLayout>
+
 
             <android.support.v7.widget.Toolbar
-                android:visibility="invisible"
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                app:layout_collapseMode="pin"
-                app:elevation="0dp"
                 android:background="@android:color/holo_orange_dark"
-                />
+                android:visibility="invisible"
+                app:elevation="0dp"
+                app:layout_collapseMode="pin" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
